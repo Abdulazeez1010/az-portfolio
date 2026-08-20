@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -56,7 +57,12 @@ export default function Contact() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-6">
+    <main className="relative flex min-h-screen flex-col items-center justify-center px-6">
+      <nav className="absolute top-6 left-6 text-sm">
+        <Link href="/" className="text-[#E6E8EB]/70 hover:text-[#4C8BF5] transition">
+          ← Home
+        </Link>
+      </nav>
       <h1 className="text-3xl font-bold text-[#E6E8EB] mb-2">
         Convinced? Good - let&apos;s talk.
       </h1>

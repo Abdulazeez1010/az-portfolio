@@ -1,0 +1,46 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="600" fill="#0D1117"/>
+
+  <!-- Faint grid -->
+  <g stroke="#4C8BF5" stroke-width="0.5" opacity="0.08">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="150" y1="0" x2="150" y2="600"/>
+    <line x1="350" y1="0" x2="350" y2="600"/>
+    <line x1="550" y1="0" x2="550" y2="600"/>
+    <line x1="750" y1="0" x2="750" y2="600"/>
+    <line x1="950" y1="0" x2="950" y2="600"/>
+    <line x1="1150" y1="0" x2="1150" y2="600"/>
+  </g>
+
+  <!-- Circuit-style connector paths -->
+  <g fill="none" stroke="#4C8BF5" stroke-width="1" opacity="0.25" stroke-linecap="round">
+    <path d="M 150 100 L 150 240 L 350 240"/>
+    <path d="M 750 0 L 750 160 L 950 160 L 950 300"/>
+    <path d="M 1150 300 L 950 300 L 950 500"/>
+    <path d="M 0 400 L 350 400 L 350 500"/>
+    <path d="M 550 600 L 550 460 L 750 460"/>
+  </g>
+
+  <!-- Node points at intersections -->
+  <g fill="#4C8BF5">
+    <circle cx="150" cy="240" r="3" opacity="0.6"/>
+    <circle cx="350" cy="240" r="3" opacity="0.4"/>
+    <circle cx="750" cy="160" r="3" opacity="0.5"/>
+    <circle cx="950" cy="160" r="3" opacity="0.4"/>
+    <circle cx="950" cy="300" r="3" opacity="0.6"/>
+    <circle cx="350" cy="400" r="3" opacity="0.5"/>
+    <circle cx="350" cy="500" r="3" opacity="0.4"/>
+    <circle cx="550" cy="460" r="3" opacity="0.5"/>
+    <circle cx="750" cy="460" r="3" opacity="0.4"/>
+  </g>
+
+  <!-- Sparse accent nodes in teal for quiet contrast -->
+  <g fill="#7ED9C3" opacity="0.35">
+    <circle cx="950" cy="500" r="3"/>
+    <circle cx="150" cy="100" r="3"/>
+  </g>
+</svg>
