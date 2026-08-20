@@ -7,6 +7,10 @@ export default function Home() {
       <p className="max-w-xl text-lg text-[#E6E8EB]/80 mb-2">
         What design approved is what ships — pixel for pixel, not close enough.
       </p>
+      <p className="text-sm text-[#E6E8EB]/60 mb-8">
+        Frontend developer · Building a full-stack portfolio and completing 
+        the FlyRank AI Fluency track
+      </p>
       <div className="flex flex-wrap gap-4 justify-center">
         <a href="https://www.linkedin.com/in/abdulazeez-alani-3624901a0" target="_blank" 
            className="text-[#4C8BF5] hover:text-[#7ED9C3]">
