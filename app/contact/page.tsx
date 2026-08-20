@@ -4,13 +4,36 @@ import { useState } from "react";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("sending");
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    const name = data.get("name") as string;
+    const email = data.get("email") as string;
+    const message = data.get("message") as string;
+
+    if (!name || name.trim().length === 0) {
+      setStatus("error");
+      setErrorMsg("Please enter your name.")
+      return;
+    }
+
+    if (!email || !email.includes("@")) {
+      setStatus("error");
+      setErrorMsg("Please enter a valid email so I can reply.");
+      return;
+    }
+
+    if (!message || message.trim().length === 0) {
+      setStatus("error");
+      setErrorMsg("Please add a message before sending.");
+      return;
+    }
+
+    setStatus("sending");
 
     try {
       const response = await fetch("https://formspree.io/f/mqpzwgyw", {
@@ -24,9 +47,11 @@ export default function Contact() {
         form.reset();
       } else {
         setStatus("error");
+        setErrorMsg("Something went wrong on my end — try again, or email me directly.");
       }
     } catch {
       setStatus("error");
+      setErrorMsg("Couldn't reach the server — check your connection and try again.");
     }
   }
 
@@ -38,7 +63,7 @@ export default function Contact() {
       <p className="text-[#E6E8EB]/60 mb-8 text-sm">
         Send a message and I&apos;ll get back to you.
       </p>
-      <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col gap-4">
+      <form onSubmit={handleSubmit} noValidate className="w-full max-w-md flex flex-col gap-4">
         <input
           type="text" name="name" placeholder="Your name" required
           className="bg-transparent border border-[#4C8BF5]/30 rounded px-4 py-3 text-[#E6E8EB] placeholder:text-[#E6E8EB]/40 focus:border-[#4C8BF5] outline-none transition"
@@ -58,10 +83,10 @@ export default function Contact() {
           {status === "sending" ? "Sending..." : "Send"}
         </button>
         {status === "sent" && (
-          <p className="text-[#7ED9C3] text-sm">Message sent - I&apos;ll get back to you soon.</p>
+          <p className="text-[#7ED9C3] text-sm">Thanks - I&apos;ll be in touch.</p>
         )}
         {status === "error" && (
-          <p className="text-red-400 text-sm">Something went wrong - try again, or email me directly.</p>
+          <p className="text-red-400 text-sm">{errorMsg}</p>
         )}
       </form>
     </main>
