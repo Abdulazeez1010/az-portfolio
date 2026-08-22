@@ -269,7 +269,7 @@ export default function Home() {
 
         <section
           aria-labelledby="tools-heading"
-          className="mx-auto mt-20 max-w-4xl text-center">
+          className="mx-auto mt-4 max-w-4xl text-center">
           <h2
             id="tools-heading"
             className="text-sm font-medium uppercase tracking-[0.18em] text-[#E6E8EB]/40"

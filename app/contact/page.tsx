@@ -71,7 +71,13 @@ export default function Contact() {
       <p className="text-[#E6E8EB]/60 mb-8 text-sm">
         Send a message and I&apos;ll get back to you.
       </p>
-      <form onSubmit={handleSubmit} noValidate className="w-full max-w-md flex flex-col gap-4">
+      <form
+        action="https://formspree.io/f/mqpzwgyw"
+        method="POST"
+        onSubmit={handleSubmit}
+        // noValidate
+        className="w-full max-w-md flex flex-col gap-4"
+      >
         <input
           type="text" name="name" placeholder="Your name" required
           className="bg-transparent border border-[#4C8BF5]/30 rounded px-4 py-3 text-[#E6E8EB] placeholder:text-[#E6E8EB]/40 focus:border-[#4C8BF5] outline-none transition"
@@ -91,10 +97,14 @@ export default function Contact() {
           {status === "sending" ? "Sending..." : "Send"}
         </button>
         {status === "sent" && (
-          <p className="text-[#7ED9C3] text-sm">Thanks - I&apos;ll be in touch.</p>
+          <p role="alert" className="text-[#7ED9C3] text-sm">
+            Thanks - I&apos;ll be in touch.
+          </p>
         )}
         {status === "error" && (
-          <p className="text-red-400 text-sm">{errorMsg}</p>
+          <p role="alert" className="text-red-400 text-sm">
+            {errorMsg}
+          </p>
         )}
       </form>
     </main>
