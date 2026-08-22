@@ -126,7 +126,7 @@ export const metadata: Metadata = {
     title: "Abdulazeez Alani - Frontend Developer",
     description:
       "Frontend developer turning approved designs into accurate, accessible React and TypeScript interfaces.",
-    url: "https://abdulazeez-alani-portfolio.netlify.app/",
+    url: "https://abdulazeez-alani-portfolio.vercel.app/",
     siteName: "Abdulazeez Alani Portfolio",
     images: [
       {

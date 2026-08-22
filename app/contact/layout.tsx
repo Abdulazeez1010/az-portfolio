@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact — Abdulazeez Alani",
     description: "Schedule an interview or send a message directly - - let's talk about your frontend role.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
     type: "website",
   },
 };

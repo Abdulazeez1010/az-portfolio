@@ -4,7 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://abdulazeez-alani-portfolio.netlify.app/"),
+  metadataBase: new URL("https://abdulazeez-alani-portfolio.vercel.app/"),
   title: {
     default: "Abdulazeez Alani - Frontend Developer",
     template: "%s | Abdulazeez Alani",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Abdulazeez Alani - Frontend Developer",
     description: "I turn Figma designs into accurate, responsive, accessible React components.",
-    url: "https://abdulazeez-alani-portfolio.netlify.app/",
+    url: "https://abdulazeez-alani-portfolio.vercel.app/",
     images: ["/og-image.jpg"],
   },
   twitter: {

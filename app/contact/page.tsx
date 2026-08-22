@@ -82,7 +82,7 @@ export default function Contact() {
         action="https://formspree.io/f/mqpzwgyw"
         method="POST"
         onSubmit={handleSubmit}
-        noValidate
+        // noValidate
         className="w-full max-w-md flex flex-col gap-4"
       >
         <input
