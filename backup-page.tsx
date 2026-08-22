@@ -206,7 +206,7 @@ export default function Home() {
           </nav>
         </header>
 
-        <section className="grid flex-1 items-center gap-14 py-20 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.75fr)]">
+        <section className="flex flex-1 items-center py-20">
           <div className="max-w-3xl">
             <p className="mb-5 text-sm font-medium uppercase tracking-[0.18em] text-[#7ED9C3]">
               Frontend Developer
@@ -241,80 +241,57 @@ export default function Home() {
                 Email me directly
               </a>
             </p>
-          </div>
 
-          <div className="hidden lg:block" aria-hidden="true">
-            {/* Kept intentionally empty for now */}
-          </div>
-
-          {/* To be replaced with something like */}
-
-          {/* <aside className="hidden lg:block">
-            <a
-              href="/work/property-listing"
-              className="group block rounded border border-[#E6E8EB]/10 bg-[#E6E8EB]/5 p-4 transition hover:border-[#7ED9C3]/50"
-            >
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#7ED9C3]">
-                Featured Work
-              </p>
-              <h2 className="mt-3 text-xl font-bold text-[#E6E8EB]">
-                Property listing site
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-[#E6E8EB]/60">
-                Figma to React implementation focused on responsive listings and lead capture.
-              </p>
-            </a>
-          </aside> */}
-        </section>
-
-        <section
-          aria-labelledby="tools-heading"
-          className="mx-auto mt-20 max-w-4xl text-center">
-          <h2
-            id="tools-heading"
-            className="text-sm font-medium uppercase tracking-[0.18em] text-[#E6E8EB]/40"
-          >
-            Tools I build with
-          </h2>
-
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
-            {techLogos.map(({ name, Icon, color }) => (
-              <div
-                key={name}
-                className="flex items-center gap-2 text-sm text-[#E6E8EB]/68"
+            <section
+              aria-labelledby="tools-heading"
+              className="mx-auto mt-20 max-w-4xl text-center">
+              <h2
+                id="tools-heading"
+                className="text-sm font-medium uppercase tracking-[0.18em] text-[#E6E8EB]/40"
               >
-                <Icon
-                  aria-hidden="true"
-                  className={`h-6 w-6 ${color}`}
-                />
-                <span>{name}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+                Tools I build with
+              </h2>
 
-        <section
-          aria-labelledby="capabilities-heading"
-          className="mx-auto mt-16 max-w-4xl text-center"
-        >
-          <h2
-            id="capabilities-heading"
-            className="text-sm font-medium uppercase tracking-[0.18em] text-[#E6E8EB]/40"
-          >
-            Implementation strengths
-          </h2>
-
-          <div className="mt-7 grid gap-8 sm:grid-cols-2">
-            {capabilities.map((item, index) => (
-              <div key={item} className="text-center">
-                <p className="text-xs font-medium text-[#7ED9C3]/70">
-                  0{index + 1}
-                </p>
-                <p className="mt-2 text-lg font-medium text-[#E6E8EB]">
-                  {item}
-                </p>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
+                {techLogos.map(({ name, Icon, color }) => (
+                  <div
+                    key={name}
+                    className="flex items-center gap-2 text-sm text-[#E6E8EB]/68"
+                  >
+                    <Icon
+                      aria-hidden="true"
+                      className={`h-6 w-6 ${color}`}
+                    />
+                    <span>{name}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </section>
+
+            <section
+              aria-labelledby="capabilities-heading"
+              className="mx-auto mt-16 max-w-4xl text-center"
+            >
+              <h2
+                id="capabilities-heading"
+                className="text-sm font-medium uppercase tracking-[0.18em] text-[#E6E8EB]/40"
+              >
+                Implementation strengths
+              </h2>
+
+              <div className="mt-7 grid gap-8 sm:grid-cols-2">
+                {capabilities.map((item, index) => (
+                  <div key={item} className="text-center">
+                    <p className="text-xs font-medium text-[#7ED9C3]/70">
+                      0{index + 1}
+                    </p>
+                    <p className="mt-2 text-lg font-medium text-[#E6E8EB]">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
         </section>
 
