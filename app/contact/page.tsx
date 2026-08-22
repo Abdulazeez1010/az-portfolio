@@ -1,11 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   
   async function handleSubmit(
@@ -82,7 +87,7 @@ export default function Contact() {
         action="https://formspree.io/f/mqpzwgyw"
         method="POST"
         onSubmit={handleSubmit}
-        // noValidate
+        noValidate
         className="w-full max-w-md flex flex-col gap-4"
       >
         <input
@@ -101,7 +106,7 @@ export default function Contact() {
           type="submit" disabled={status === "sending"}
           className="bg-[#4C8BF5] text-[#0D1117] font-bold rounded px-4 py-3 hover:bg-[#7ED9C3] transition disabled:opacity-50"
         >
-          {status === "sending" ? "Sending..." : "Send"}
+          {!mounted ? "Loading" : status === "sending" ? "Sending..." : "Send"}
         </button>
         {status === "sent" && (
           <p role="alert" className="text-[#7ED9C3] text-sm">
