@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     title: "Abdulazeez Alani - Frontend Developer",
     description: "I turn Figma designs into accurate, responsive, accessible React components.",
     url: "https://abdulazeez-alani-portfolio.vercel.app/",
-    images: ["/og-image.jpg"],
+    images: ["/og-image-resized.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Abdulazeez Alani - Frontend Developer",
     description: "I turn Figma designs into accurate, responsive, accessible React components.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image-resized.jpg"],
   },
 };
 
