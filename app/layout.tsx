@@ -9,6 +9,19 @@ export const metadata: Metadata = {
     default: "Abdulazeez Alani - Frontend Developer",
     template: "%s | Abdulazeez Alani",
   },
+  description: "I turn Figma designs into accurate, responsive, accessible React components.",
+  openGraph: {
+    title: "Abdulazeez Alani - Frontend Developer",
+    description: "I turn Figma designs into accurate, responsive, accessible React components.",
+    url: "https://abdulazeez-alani-portfolio.netlify.app/",
+    images: ["/og-image.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abdulazeez Alani - Frontend Developer",
+    description: "I turn Figma designs into accurate, responsive, accessible React components.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const spaceGrotesk = Space_Grotesk({
@@ -22,7 +35,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${spaceGrotesk.variable} h-full antialiased`}
     >
-      {/* Google tag (gtag.js) */}
+      <body className="min-h-full flex flex-col">
+        {children}
+
+        {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4X14GNYLNG"
           strategy="afterInteractive"
@@ -35,7 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             gtag('config', 'G-4X14GNYLNG');
           `}
         </Script>
-      <body className="min-h-full flex flex-col">{children}</body>
+      </body>
     </html>
   );
 }

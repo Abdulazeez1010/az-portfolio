@@ -12,7 +12,7 @@
 //     siteName: "Abdulazeez Alani Portfolio",
 //     images: [
 //       {
-//         url: "/og-image.png",
+//         url: "/og-image.jpg",
 //         width: 1200,
 //         height: 630,
 //         alt: "Abdulazeez Alani Portfolio",
@@ -39,7 +39,7 @@
 //       {/* Logo mark, top-left */}
 //       <div className="absolute top-6 left-6">
 //         <Image
-//           src="/logo-mark.svg"
+//           src="/icon.svg"
 //           alt="Abdulazeez Alani Logo" 
 //           width={100}
 //           height={100}
@@ -130,7 +130,7 @@ export const metadata: Metadata = {
     siteName: "Abdulazeez Alani Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Abdulazeez Alani Portfolio",
@@ -171,7 +171,7 @@ export default function Home() {
         <header className="flex items-center justify-between">
           <Link href="/" aria-label="Abdulazeez Alani home">
             <Image
-              src="/logo-mark.svg"
+              src="/icon.svg"
               alt="Abdulazeez Alani Logo"
               width={48}
               height={48}
