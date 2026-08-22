@@ -6,17 +6,21 @@ import Link from "next/link";
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  
+  
+  async function handleSubmit(
+    e: React.SyntheticEvent<HTMLFormElement, SubmitEvent>
+  ) {
     e.preventDefault();
 
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = data.get("name") as string;
-    const email = data.get("email") as string;
-    const message = data.get("message") as string;
 
-    if (!name || name.trim().length === 0) {
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    if (!name) {
       setStatus("error");
       setErrorMsg("Please enter your name.");
       return;
@@ -24,34 +28,37 @@ export default function Contact() {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!email || !emailRegex.test(email)) {
+    if (!emailRegex.test(email)) {
       setStatus("error");
       setErrorMsg("Please enter a valid email so I can reply.");
       return;
     }
 
-    if (!message || message.trim().length === 0) {
+    if (!message) {
       setStatus("error");
       setErrorMsg("Please add a message before sending.");
       return;
     }
 
     setStatus("sending");
+    setErrorMsg("");
 
     try {
       const response = await fetch("https://formspree.io/f/mqpzwgyw", {
-        method: "POST",
+        method: form.method,
         body: data,
-        headers: { Accept: "application/json" },
+        headers: { 
+          Accept: "application/json"
+        },
       });
 
-      if (response.ok) {
-        setStatus("sent");
-        form.reset();
-      } else {
-        setStatus("error");
-        setErrorMsg("Something went wrong on my end - try again, or email me directly.");
+      if (!response.ok) {
+        throw new Error("Form submission failed");
       }
+
+      setStatus("sent");
+      form.reset();
+
     } catch {
       setStatus("error");
       setErrorMsg("Couldn't reach the server - check your connection and try again.");
@@ -75,7 +82,7 @@ export default function Contact() {
         action="https://formspree.io/f/mqpzwgyw"
         method="POST"
         onSubmit={handleSubmit}
-        // noValidate
+        noValidate
         className="w-full max-w-md flex flex-col gap-4"
       >
         <input
