@@ -18,11 +18,13 @@ export default function Contact() {
 
     if (!name || name.trim().length === 0) {
       setStatus("error");
-      setErrorMsg("Please enter your name.")
+      setErrorMsg("Please enter your name.");
       return;
     }
 
-    if (!email || !email.includes("@")) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email || !emailRegex.test(email)) {
       setStatus("error");
       setErrorMsg("Please enter a valid email so I can reply.");
       return;
@@ -48,11 +50,11 @@ export default function Contact() {
         form.reset();
       } else {
         setStatus("error");
-        setErrorMsg("Something went wrong on my end — try again, or email me directly.");
+        setErrorMsg("Something went wrong on my end - try again, or email me directly.");
       }
     } catch {
       setStatus("error");
-      setErrorMsg("Couldn't reach the server — check your connection and try again.");
+      setErrorMsg("Couldn't reach the server - check your connection and try again.");
     }
   }
 
