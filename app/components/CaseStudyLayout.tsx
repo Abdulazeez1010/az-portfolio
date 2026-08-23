@@ -1,4 +1,5 @@
 import Nav from "./Nav";
+import Image from "next/image";
 import { CaseStudy } from "../lib/case-studies";
 
 export default function CaseStudyLayout({ caseStudy }: { caseStudy: CaseStudy }) {
@@ -21,7 +22,25 @@ export default function CaseStudyLayout({ caseStudy }: { caseStudy: CaseStudy })
             {caseStudy.title}
           </h1>
 
-          <p className="text-lg text-[#E6E8EB]/80 mb-16">{caseStudy.summary}</p>
+          {/* <p className="text-lg text-[#E6E8EB]/80 mb-16">{caseStudy.summary}</p> */}
+          <p className="text-lg text-[#E6E8EB]/80 mb-8">{caseStudy.summary}</p>
+
+          <figure className="mb-16 overflow-hidden rounded border border-[#E6E8EB]/10 bg-[#E6E8EB]/5">
+            <Image
+              src={caseStudy.heroImage.src}
+              alt={caseStudy.heroImage.alt}
+              width={1440}
+              height={900}
+              className="aspect-[16/10] w-full object-cover"
+              priority
+            />
+
+            {caseStudy.heroImage.caption && (
+              <figcaption className="border-t border-[#E6E8EB]/10 px-4 py-3 text-xs text-[#E6E8EB]/45">
+                {caseStudy.heroImage.caption}
+              </figcaption>
+            )}
+          </figure>
 
           {/* 01 — Problem */}
           <section className="mb-16">
@@ -75,6 +94,51 @@ export default function CaseStudyLayout({ caseStudy }: { caseStudy: CaseStudy })
             </div>
             <p className="text-[#E6E8EB]/80 leading-relaxed">{caseStudy.whatCameOfIt}</p>
           </section>
+
+          {/* Gallery */}
+          {caseStudy.gallery && caseStudy.gallery.length > 0 && (
+            <section className="mb-20">
+              <div className="flex items-baseline gap-3 mb-6">
+                <span className="text-sm font-bold text-[#4C8BF5]">04</span>
+                <h2 className="text-xl font-bold text-[#E6E8EB]">Screens from the build</h2>
+              </div>
+
+              <div className="grid gap-6">
+                {caseStudy.gallery.map((image) => (
+                  <figure
+                    key={image.src}
+                    className="overflow-hidden rounded border border-[#E6E8EB]/10 bg-[#E6E8EB]/5"
+                  >
+                    <div
+                      className={
+                        image.variant === "mobile"
+                          ? "flex justify-center bg-[#05080D] px-4 py-8"
+                          : "bg-[#05080D]"
+                      }
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.variant === "mobile" ? 390 : 1440}
+                        height={image.variant === "mobile" ? 844 : 900}
+                        className={
+                          image.variant === "mobile"
+                            ? "h-auto w-full max-w-[260px] rounded sm:max-w-[300px]"
+                            : "aspect-[16/10] w-full object-cover"
+                        }
+                      />
+                    </div>
+
+                    {image.caption && (
+                      <figcaption className="border-t border-[#E6E8EB]/10 px-4 py-3 text-xs text-[#E6E8EB]/45">
+                        {image.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* CTA */}
           <div className="border-t border-[#4C8BF5]/20 pt-10">

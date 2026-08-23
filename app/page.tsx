@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { caseStudies } from "./lib/case-studies";
 import Nav from "./components/Nav";
 
 import {
@@ -46,6 +49,7 @@ const capabilities = [
 ];
 
 export default function Home() {
+  const featuredCaseStudy = caseStudies[0];
   return (
     <main className="relative min-h-screen overflow-hidden text-[#E6E8EB]">
       <div
@@ -98,28 +102,39 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="hidden lg:block" aria-hidden="true">
-              {/* Kept intentionally empty for now */}
-            </div>
-
-            {/* To be replaced with something like */}
-
-            {/* <aside className="hidden lg:block">
-              <a
-                href="/work/property-listing"
-                className="group block rounded border border-[#E6E8EB]/10 bg-[#E6E8EB]/5 p-4 transition hover:border-[#7ED9C3]/50"
+            <aside className="hidden lg:block">
+              <Link
+                href={`/work/${featuredCaseStudy.slug}`}
+                className="group block overflow-hidden rounded border border-[#E6E8EB]/10 bg-[#E6E8EB]/5 transition hover:border-[#7ED9C3]/50"
               >
-                <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#7ED9C3]">
-                  Featured Work
-                </p>
-                <h2 className="mt-3 text-xl font-bold text-[#E6E8EB]">
-                  Property listing site
-                </h2>
-                <p className="mt-2 text-sm leading-6 text-[#E6E8EB]/60">
-                  Figma to React implementation focused on responsive listings and lead capture.
-                </p>
-              </a>
-            </aside> */}
+                <Image
+                  src={featuredCaseStudy.thumbnail.src}
+                  alt={featuredCaseStudy.thumbnail.alt}
+                  width={900}
+                  height={640}
+                  className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  priority
+                />
+
+                <div className="p-5">
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#7ED9C3]">
+                    Featured Work
+                  </p>
+
+                  <h2 className="mt-3 text-xl font-bold text-[#E6E8EB] group-hover:text-[#4C8BF5] transition">
+                    {featuredCaseStudy.title}
+                  </h2>
+
+                  <p className="mt-2 text-sm leading-6 text-[#E6E8EB]/60">
+                    {featuredCaseStudy.summary}
+                  </p>
+
+                  <p className="mt-4 text-sm font-medium text-[#7ED9C3]">
+                    See the full case study
+                  </p>
+                </div>
+              </Link>
+            </aside>
           </section>
 
           <section

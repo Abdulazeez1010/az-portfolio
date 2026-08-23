@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import { caseStudies } from "../lib/case-studies";
@@ -35,8 +36,18 @@ export default function WorkIndex() {
               <Link
                 key={cs.slug}
                 href={`/work/${cs.slug}`}
-                className="group block border border-[#4C8BF5]/20 rounded-lg p-6 hover:border-[#4C8BF5]/60 transition"
+                className="group block rounded-lg border border-[#4C8BF5]/20 p-4 transition hover:border-[#4C8BF5]/60 sm:p-6"
               >
+                <div className="mb-5 overflow-hidden rounded bg-[#E6E8EB]/5">
+                  <Image
+                    src={cs.thumbnail.src}
+                    alt={cs.thumbnail.alt}
+                    width={900}
+                    height={640}
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-xs px-2 py-0.5 rounded border border-[#4C8BF5]/40 text-[#4C8BF5]">
                     {cs.status}
@@ -45,6 +56,7 @@ export default function WorkIndex() {
                 <h2 className="text-xl font-bold text-[#E6E8EB] mb-2 group-hover:text-[#4C8BF5] transition">
                   {cs.title}
                 </h2>
+                
                 <p className="text-sm text-[#E6E8EB]/70 leading-relaxed">
                   {cs.summary}
                 </p>

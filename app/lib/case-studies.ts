@@ -4,6 +4,13 @@ export type WhatIDidItem = {
   bullets?: string[];
 };
 
+export type CaseStudyImage = {
+  src: string;
+  alt: string;
+  caption?: string;
+  variant?: "desktop" | "mobile";
+};
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -11,6 +18,9 @@ export type CaseStudy = {
   summary: string;
   metaDescription: string;
   ogDescription: string;
+  thumbnail: CaseStudyImage;
+  heroImage: CaseStudyImage;
+  gallery?: CaseStudyImage[];
   problem: {
     intro: string[];
     callouts?: string[];
@@ -30,6 +40,33 @@ export const caseStudies: CaseStudy[] = [
       "Case study: redesigning a property listing platform from Figma to React — fixing broken behavior, building the mobile layout nobody designed, and catching a spec conflict before it shipped.",
     ogDescription:
       "Figma to React: an active redesign of a property listing platform, bugs fixed and spec conflicts caught along the way.",
+    thumbnail: {
+      src: "/work/property-listing/hero.jpg",
+      alt: "Property listing site homepage interface",
+    },
+    heroImage: {
+      src: "/work/property-listing/hero.jpg",
+      alt: "Property listing site redesigned from Figma to React",
+      caption: "Property listing redesign - Figma to React implementation.",
+    },
+    gallery: [
+      {
+        src: "/work/property-listing/listings.jpg",
+        alt: "Responsive property listing card grid",
+        caption: "Listing grid rebuilt across desktop, tablet, and mobile breakpoints.",
+      },
+      {
+        src: "/work/property-listing/filters.jpg",
+        alt: "Property listing filter interface",
+        caption: "Filter behavior fixed so selected amenities actually affect results.",
+      },
+      {
+        src: "/work/property-listing/mobile.jpg",
+        alt: "Mobile property listing interface",
+        caption: "Mobile layout created without dedicated mobile Figma frames.",
+        variant: "mobile",
+      },
+    ],
     problem: {
       intro: [
         "The old site worked, technically. It also had a search filter that ignored what you filtered for, a guest counter you could click infinitely past the actual max occupancy, and a sign-out button that didn't sign you out.",
