@@ -74,10 +74,14 @@ export default function Home() {
               <h1 className="max-w-4xl text-5xl font-bold leading-[1.02] text-[#E6E8EB] sm:whitespace-nowrap sm:text-6xl lg:text-7xl">
                 Abdulazeez Alani
               </h1>
+              <p className="mt-5 max-w-2xl text-2xl font-bold leading-snug text-[#E6E8EB] md:text-3xl">
+                I build the interface the design promised.
+              </p>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#E6E8EB]/72">
-                I turn approved Figma designs into accurate, responsive, accessible
-                React and TypeScript experiences. Pixel for pixel, not close enough.
+                I turn approved Figma designs into accurate, responsive, accessible React
+                interfaces, while catching the layout gaps, broken states, and usability
+                issues that screenshots don&apos;t show.
               </p>
 
               <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row">
