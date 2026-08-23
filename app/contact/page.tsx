@@ -66,52 +66,53 @@ export default function Contact() {
   }
 
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center px-6">
+    <main className="relative min-h-screen text-[#E6E8EB]">
       <Nav />
 
-      <div className="mx-auto flex min-h-[calc(100vh-96px)] w-full max-w-md flex-col justify-center px-6 py-16">
-        <h1 className="text-3xl font-bold text-[#E6E8EB] mb-2">
-          Convinced? Good - let&apos;s talk.
-        </h1>
-        <p className="text-[#E6E8EB]/60 mb-8 text-sm">
-          Send a message and I&apos;ll get back to you.
-        </p>
-        <form
-          action="https://formspree.io/f/mqpzwgyw"
-          method="POST"
-          onSubmit={handleSubmit}
-          // noValidate
-          className="w-full max-w-md flex flex-col gap-4"
-        >
-          <input
-            type="text" name="name" placeholder="Your name" required
-            className="bg-transparent border border-[#4C8BF5]/30 rounded px-4 py-3 text-[#E6E8EB] placeholder:text-[#E6E8EB]/40 focus:border-[#4C8BF5] outline-none transition"
-          />
-          <input
-            type="email" name="email" placeholder="Your email" required
-            className="bg-transparent border border-[#4C8BF5]/30 rounded px-4 py-3 text-[#E6E8EB] placeholder:text-[#E6E8EB]/40 focus:border-[#4C8BF5] outline-none transition"
-          />
-          <textarea
-            name="message" placeholder="What would you like to talk about?" required rows={5}
-            className="bg-transparent border border-[#4C8BF5]/30 rounded px-4 py-3 text-[#E6E8EB] placeholder:text-[#E6E8EB]/40 focus:border-[#4C8BF5] outline-none transition"
-          />
-          <button
-            type="submit" disabled={status === "sending"}
-            className="bg-[#4C8BF5] text-[#0D1117] font-bold rounded px-4 py-3 hover:bg-[#7ED9C3] transition disabled:opacity-50"
+      <div className="mx-auto w-full max-w-6xl px-6 py-16">
+        <div className="max-w-2xl">
+          <h1 className="text-3xl font-bold text-[#E6E8EB] mb-2">
+            Convinced? Good - let&apos;s talk.
+          </h1>
+          <p className="text-[#E6E8EB]/60 mb-8 text-sm">
+            Send a message and I&apos;ll get back to you.
+          </p>
+          <form
+            action="https://formspree.io/f/mqpzwgyw"
+            method="POST"
+            onSubmit={handleSubmit}
+            className="w-full max-w-md flex flex-col gap-4"
           >
-            {status === "sending" ? "Sending..." : "Send"}
-          </button>
-          {status === "sent" && (
-            <p role="alert" className="text-[#7ED9C3] text-sm">
-              Thanks - I&apos;ll be in touch.
-            </p>
-          )}
-          {status === "error" && (
-            <p role="alert" className="text-red-400 text-sm">
-              {errorMsg}
-            </p>
-          )}
-        </form>
+            <input
+              type="text" name="name" placeholder="Your name" required
+              className="bg-transparent border border-[#4C8BF5]/30 rounded px-4 py-3 text-[#E6E8EB] placeholder:text-[#E6E8EB]/40 focus:border-[#4C8BF5] outline-none transition"
+            />
+            <input
+              type="email" name="email" placeholder="Your email" required
+              className="bg-transparent border border-[#4C8BF5]/30 rounded px-4 py-3 text-[#E6E8EB] placeholder:text-[#E6E8EB]/40 focus:border-[#4C8BF5] outline-none transition"
+            />
+            <textarea
+              name="message" placeholder="What would you like to talk about?" required rows={5}
+              className="bg-transparent border border-[#4C8BF5]/30 rounded px-4 py-3 text-[#E6E8EB] placeholder:text-[#E6E8EB]/40 focus:border-[#4C8BF5] outline-none transition"
+            />
+            <button
+              type="submit" disabled={status === "sending"}
+              className="bg-[#4C8BF5] text-[#0D1117] font-bold rounded px-4 py-3 hover:bg-[#7ED9C3] transition disabled:opacity-50"
+            >
+              {status === "sending" ? "Sending..." : "Send"}
+            </button>
+            {status === "sent" && (
+              <p role="alert" className="text-[#7ED9C3] text-sm">
+                Thanks - I&apos;ll be in touch.
+              </p>
+            )}
+            {status === "error" && (
+              <p role="alert" className="text-red-400 text-sm">
+                {errorMsg}
+              </p>
+            )}
+          </form>
+        </div>
       </div>
     </main>
   );
