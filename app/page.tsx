@@ -215,7 +215,7 @@ export default function Home() {
               </a>
 
               <a
-                href="/cv.pdf"
+                href="/Abdulazeez_Alani_CV.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="transition hover:text-[#7ED9C3]"
