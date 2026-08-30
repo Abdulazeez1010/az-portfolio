@@ -89,7 +89,7 @@ export default function About() {
 
           <div className="order-first lg:order-none">
             <Image
-              src="/abdulazeez.png"
+              src="/Abdulazeez_profile_pic.png"
               alt="Abdulazeez Alani"
               width={560}
               height={700}
